@@ -10,3 +10,9 @@ CONJUNCTIONS = yaml.load(open('data/conjunction.yaml'))
 SPECIAL = yaml.load(open('data/special.yaml'))
 
 
+def Main():
+    pass
+
+
+if __name__ == '__main__':
+    Main()
