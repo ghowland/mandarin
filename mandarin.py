@@ -1,4 +1,4 @@
-#!/usr/bin/end python
+#!/usr/bin/env python
 
 """
 Mandarin
@@ -8,6 +8,7 @@ Mandarin
 import yaml
 import glob
 import os
+import pprint
 
 
 DATA_PATH_GLOB = 'data/*.yaml'
@@ -52,13 +53,27 @@ def LoadData():
         for (mandarin, english) in path_data.items():
             data[key][mandarin] = english
             
-            data[reverse_key][english] = mandarin
+            if type(english) in (str, unicode):
+                data[reverse_key][english] = mandarin
+            elif type(english) in (int, float):
+                data[reverse_key][english] = str(mandarin)
+            else:
+                # print '%s:  %s = %s' % (key, mandarin, english)
+                
+                for item in english:
+                    if type(item) in (int, float):
+                        data[reverse_key][str(item)] = mandarin
+                        
+                    elif not item.startswith('*NOTE*') and not item.startswith('*NOUN*') and not item.startswith('*VERB*') and not item.startswith('*ADJ*'):
+                        data[reverse_key][item] = mandarin
     
     return data
 
 
 def Main():
     data = LoadData()
+    
+    pprint.pprint(data)
 
 
 if __name__ == '__main__':
