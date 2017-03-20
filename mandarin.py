@@ -9,6 +9,7 @@ import yaml
 import glob
 import os
 import pprint
+import random
 
 
 DATA_PATH_GLOB = 'data/*.yaml'
@@ -62,6 +63,35 @@ def LoadData(with_reverse=True):
               data[reverse_key][item] = mandarin
     
   return data
+
+
+def QuizOneItem(data, key_list=None):
+  """Ask the user one question, does not construct a sentence, basic term checking.  key_list will limit which questions are asked"""
+  keys = data.keys()
+  keys.sort()
+  key_count = len(keys)
+  
+  key_selected = random.randint(0, key_count)
+  
+  key = keys[key_selected]
+  
+  items = data[key]
+  
+  item_count = len(items)
+  item_keys = item.keys()
+  item_keys.sort()
+  
+  item_selected = random.randint(0, item_count)
+  
+  
+  source = item_keys[item_selected]
+  target = items[item_keys[item_selected]]
+  
+  print 'Translate: %s' % source
+  
+  
+  
+  
 
 
 def Main():
