@@ -134,8 +134,6 @@ def Main():
     
     #pprint.pprint(data)
 
-    print 'Successes'
-
     correct = 0
     wrong = 0
     noanswer = 0
