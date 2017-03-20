@@ -121,8 +121,10 @@ def QuizOneItem(data, key_list=None):
                 print 'CORRECT:    Target was: %s' % target
                 success = True
 
-    if not success:
+    if not success and answer != '':
         print 'WRONG:    Target was: %s' % target
+    if not success and answer == '':
+        print 'NOANSWER:  Target was: %s' % target
 
     return (source, target, answer, success)
 
@@ -136,6 +138,10 @@ def Main():
 
     correct = 0
     wrong = 0
+    noanswer = 0
+
+    noanswer_sources = []
+    wrong_sources = []
 
     try:
         while True:
@@ -145,12 +151,25 @@ def Main():
                 correct += 1
 
             else:
-                wrong += 1
+                if answer == '':
+                    noanswer += 1
+
+                    if source not in noanswer_sources:
+                        noanswer_sources.append(source)
+
+                else:
+                    wrong += 1
+
+                    if source not in wrong_sources:
+                        wrong_sources.append(source)
 
     except KeyboardInterrupt, e:
         pass
 
-    print '\n\nCorrect: %s\nWrong: %s\n\n' % (correct, wrong)
+    print '\n\nCorrect: %s\nWrong: %s\nNo Answer: %s\n' % (correct, wrong, noanswer)
+
+    print 'No Answer: %s\n' % ', '.join(noanswer_sources)
+    print 'Wrong: %s\n' % ', '.join(wrong_sources)
 
 
 
