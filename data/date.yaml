@@ -1,5 +1,20 @@
-yue4: month
-hao4: day
-fen1: minute
 jin1 tian1: today
 xian4 zai4: now
+tian1: [day, sky]
+yi1 tian1: 1 day
+mei3 tian1: every day
+ming1 tian1: tomorrow
+zuo2 tian1: yesterday
+qian2 tian1: day before yesterday
+hou4 tian1: day after tomorrow
+xing1 qi1: [week, "*NOTE* common, counter"]
+li3 bai4: [week, pray, "*NOTE* on Sunday Christians pray, which makes the week"]
+zhou1: [week, circle, "*NOTE* old Chinese, counter, only, no ge suffix"]
+yi1 xing1 qi1: 1 week
+yi1 ge xing1 qi1: 1 week
+xing1 qi1 yi: Monday
+li3 bai4 yi1: Monday
+zhou1 yi1: Monday
+zhou1 ri4: Sunday
+li3 bai4 ri1: Sunday
+xing1 qi1 ri4: Sunday
