@@ -65,6 +65,16 @@ def LoadData(with_reverse=True):
     return data
 
 
+def Match(source, target):
+    source = str(source)
+    target = str(target)
+
+    source = source.lower().replace('_', ' ').replace(' ', '').replace('?', '').replace("'", '')
+    target = target.lower().replace('_', ' ').replace(' ', '').replace('?', '').replace("'", '')
+
+    return source == target
+
+
 def QuizOneItem(data, key_list=None):
     """Ask the user one question, does not construct a sentence, basic term checking.    key_list will limit which questions are asked"""
     keys = data.keys()
@@ -92,7 +102,7 @@ def QuizOneItem(data, key_list=None):
     source = item_keys[item_selected]
     target = items[item_keys[item_selected]]
     
-    print 'Translate: %s' % source
+    print 'Translate: %s  (%s)' % (source, key)
 
     answer = raw_input('Answer: ')
 
@@ -100,14 +110,14 @@ def QuizOneItem(data, key_list=None):
     # Assume no match, and override
     success = False
 
-    if answer == target:
+    if Match(answer, target):
         print 'CORRECT:    Target was: %s' % target
         success = True
 
     elif type(target) == list:
 
         for target_item in target:
-            if answer == target_item:
+            if Match(answer, target_item):
                 print 'CORRECT:    Target was: %s' % target
                 success = True
 
