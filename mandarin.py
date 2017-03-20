@@ -90,8 +90,6 @@ def QuizOneItem(data, key_list=None):
   print 'Translate: %s' % source
   
   
-  
-  
 
 
 def Main():
