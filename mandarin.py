@@ -15,16 +15,38 @@ import random
 DATA_PATH_GLOB = 'data/*.yaml'
 
 
+
+
 # Assertion
-SENTENCE_STRUCTURES_1 = '%(subject) shir4 %(object)s'
+SENTENCE_STRUCTURES_1 = '%(subject) shi4 %(object)s'
 # Negative Assertion
-SENTENCE_STRUCTURES_2 = '%(subject) bu2_shir4 %(object)s'
+SENTENCE_STRUCTURES_2 = '%(subject) bu2_shi4 %(object)s'
+
+
+
+SENTENCE_STRUCTURES_1 = '%(time) %(subject) shi4 %(object)s'
+SENTENCE_STRUCTURES_1 = '%(subject) %(time) shi4 %(object)s'
+
+SENTENCE_STRUCTURES_1 = '%(time) %(subject) shi4 %(object)s'
+
 
 # Action sentence
 SENTENCE_STRUCTURES_3 = '%(subject) %(action)s %(object)s'
 
+SENTENCE_STRUCTURES_1 = '%(location) %(subject) (action) %(object)s'
+SENTENCE_STRUCTURES_1 = '%(subject) %(location) (action) %(object)s'
+
+SENTENCE_STRUCTURES_1 = '%(time) %(subject) (action) %(object)s'
+SENTENCE_STRUCTURES_1 = '%(subject) %(time) (action) %(object)s'
+
+SENTENCE_STRUCTURES_1 = '%(time) %(location) %(subject) (action) %(object)s'
+SENTENCE_STRUCTURES_1 = '%(subject) %(time) %(location) (action) %(object)s'
+
+SENTENCE_STRUCTURES_1 = '%(time) %(location) %(subject) (action)  %(compliment_time_result_of_verb) %(object)s'
+SENTENCE_STRUCTURES_1 = '%(subject) %(time) %(location) (action)  %(compliment_time_result_of_verb)  %(object)s'
+
 # Description sentence
-SENTENCE_STRUCTURES_4 = '%(subject) %(adjective)s'
+SENTENCE_STRUCTURES_4 = '%(object) %(adjective)s'
 
 
 def LoadData(with_reverse=True):
